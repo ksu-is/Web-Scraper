@@ -2,12 +2,14 @@ from langchain_ollama import OllamaLLM
 from langchain.prompts import ChatPromptTemplate
 
 template = (
-    "You are tasked with extracting specific information from the following text content: {dom_content}. "
-    "Please follow these instructions carefully: \n\n"
-    "1. **Extract Information:** Only extract the information that directly matches the provided description: {parse_description}. "
-    "2. **No Extra Content:** Do not include any additional text, comments, or explanations in your response. "
-    "3. **Empty Response:** If no information matches the description, return an empty string ('')."
-    "4. **Direct Data Only:** Your output should contain only the data that is explicitly requested, with no other text."
+    "You are tasked with extracting specific information from the following HTML content:\n\n{dom_content}\n\n"
+    "Your goal is to return data that directly matches this description:\n\n{parse_description}\n\n"
+    "Instructions:\n"
+    "1. Return only the relevant extracted data.\n"
+    "2. If the data fits a structured format (like a table), output it using pipe symbols (`|`) between columns and newlines between rows.\n"
+    "3. If not structured (e.g., bios, article summaries), output the relevant text cleanly and concisely.\n"
+    "4. Never include extra explanations or introductory text.\n"
+    "5. If no matching information is found, return an empty string ('')."
 )
 
 model = OllamaLLM(model="llama3")
