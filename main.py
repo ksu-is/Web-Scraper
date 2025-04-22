@@ -4,17 +4,17 @@ from parse import parse_with_ollama
 import json
 import pandas as pd
 
-st.title("Web Scraper for APP DEV")
+st.title("Web Scraper & Parser")
 url = st.text_input("🔗 Enter the URL to scrape")
 
 # Background image
-bg_choice = st.selectbox("🎨 Choose a background theme:", ["Wall-E", "City", "Space"])
+bg_choice = st.selectbox("🎨 Choose a background theme:", [ "Lite", "Python", "Wall-E"])
 
 # URL Map for Each Theme
 bg_map = {
     "Wall-E": "https://images.unsplash.com/photo-1563207153-f403bf289096?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "City": "https://images.unsplash.com/photo-1473042904451-00171c69419d?q=80&w=2099&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "Space": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "Lite": "https://images.unsplash.com/photo-1612670940073-8aed2145ebc3?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Python": "https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=1162&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 }
 
 # Selected URL
